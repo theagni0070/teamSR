@@ -5,8 +5,152 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
+<style>
+    * {
+    font-family: sans-serif;
+    
+}
+body{
+    background-color:#6c64bf
+}
+
+h3 {
+    font-size: 45px;
+    /* margin-top: 10px; */
+}
+
+body {
+    text-align: center;
+}
+
+img {
+    margin-top: 30px;
+}
+
+a{
+    text-decoration: none;
+    color: gray;
+}
+
+#container {
+    background-color:#f1f1f1;
+    width: 32%;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 600px;
+}
+
+h5 {
+    text-align: start;
+    margin-left: 12px;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    color: gray;
+    /* font-size: 25px; */
+}
+
+#textfield {
+    background-color:#f1f1f1;
+    margin: auto;
+    margin-top: 15px;
+    margin-right: 40px;
+    margin-left: 10px;
+    height: 40px;
+}
+
+input {
+    background-color:#f1f1f1;
+    font-size: 17px;
+    padding-left: 20px;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+    /* border-radius: 10px; */
+    margin-bottom: 10px;
+    /* border: 0.2px solid lightblue; */
+    margin-bottom: 20px;
+    border-bottom: 3px solid gray;
+}
+
+#button {
+    background-color: #6c64bf;
+    border: 0.15px solid lightblue;
+    border-radius: 5px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+    /* text-align: center; */
+}
+
+span{
+    color: lightblue;
+}
+</style>
 <body>
-    <h1>I am in log in branch</h1>
+    <div id="container">
+        <h3>Log in</h3>
+        <!-- <h5>Full name</h5>
+        <div id="textfield">
+            <input id="naam" type="text" placeholder="Enter Your Name">
+        </div> -->
+        <h5>Email</h5>
+        <div id="textfield">
+            <input id="mail" type="text" placeholder="Enter  email">
+        </div>
+        <h5>Password</h5>
+        <div id="textfield">
+            <input id="password" type="text" placeholder="Enter password">
+        </div>
+        <div id="button">
+            Log In
+            <!-- <a href="login.html">SIGN UP</a> -->
+        </div>
+
+        <div>
+            <h4>Forgot <span>Password</span>?</h4>
+        </div>
+        <div><h4>Don't have an account ? <span>Sign Up</span></h4></div>
+    </div>
 </body>
 </html>
+
+<script>
+
+    document.getElementById("button").addEventListener("click",login);
+    
+    var getData = JSON.parse(localStorage.getItem("totalData"));
+    console.log("GET DATA   "+ getData[0].mail);
+    console.log("GET DATA   "+ getData[0].password);
+    
+    var btn = document.getElementById("button");
+    function login(){
+        var mail = document.getElementById("mail").value;
+
+        var pass = document.getElementById("password").value;
+            console.log("mail "+mail);
+             console.log("PASSWORD "+pass);
+       
+        if(getData[0].mail == mail && getData[0].password == pass){
+            alert("login successful");
+            console.log('================= MATCHED');
+        } else {
+            alert("Email or Password incorrect");
+            console.log('================= NOT  MATCHED ===================');
+
+        }
+    }
+</script>
